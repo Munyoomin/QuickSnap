@@ -19,6 +19,9 @@ namespace CardGames
 		/// <param name="myGame">The game object to update in response to events.</param>
 		private static void HandleUserInput(Snap myGame)
 		{
+			SwinGame.LoadSoundEffectNamed ("Bang1", "bang1.wav");
+			SwinGame.LoadSoundEffectNamed ("Bang2", "bang2.wav");
+			SwinGame.LoadSoundEffectNamed ("Tie", "tie.wav");
 			SwinGame.LoadSoundEffectNamed ("Slap", "slap.wav");
 			//Fetch the next batch of UI interaction
 			SwinGame.ProcessEvents();
@@ -30,11 +33,13 @@ namespace CardGames
 			}
 			if (myGame.IsStarted) {
 				if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT) && SwinGame.KeyTyped (KeyCode.vk_RSHIFT)) {
-					//TODO:add sound effects
+					SwinGame.PlaySoundEffect ("Tie");//TODO:add sound effects
 				} else if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT)) {
 					myGame.PlayerHit (0);
+					SwinGame.PlaySoundEffect ("Bang1");
 				} else if (SwinGame.KeyTyped (KeyCode.vk_RSHIFT)) {
 					myGame.PlayerHit (1);
+					SwinGame.PlaySoundEffect ("Bang2");
 
 				}
 			}
