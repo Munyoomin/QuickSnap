@@ -33,7 +33,8 @@ namespace CardGames
 			}
 			if (myGame.IsStarted) {
 				if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT) && SwinGame.KeyTyped (KeyCode.vk_RSHIFT)) {
-					SwinGame.PlaySoundEffect ("Tie");//TODO:add sound effects
+					SwinGame.PlaySoundEffect ("Tie");
+					//TODO:add sound effects
 				} else if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT)) {
 					myGame.PlayerHit (0);
 					SwinGame.PlaySoundEffect ("Bang1");
